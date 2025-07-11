@@ -1,25 +1,21 @@
 import React, { useState } from "react";
-import TodoList from "./TodoList";
+import LoginForm from "./LoginForm";
 
 function App() {
-  const [todos, setTodos] = useState([
-    { id: 1, text: "Learn React", completed: false },
-    { id: 2, text: "Build a todo app", completed: false },
-    { id: 3, text: "Push to GitHub", completed: false }
-  ]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleComplete = (id) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) =>
-        todo.id === id ? { ...todo, completed: true } : todo
-      )
-    );
+  const handleLogin = () => {
+    setIsLoggedIn(true);
   };
 
   return (
-    <div>
-      <h1>My Todo List</h1>
-      <TodoList todos={todos} handleComplete={handleComplete} />
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h1>Parent component</h1>
+      {isLoggedIn ? (
+        <h2>✅ You are now logged in!</h2>
+      ) : (
+        <LoginForm onLogin={handleLogin} />
+      )}
     </div>
   );
 }
