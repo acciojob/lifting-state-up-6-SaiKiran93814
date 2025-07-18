@@ -3,15 +3,13 @@ import React from 'react';
 function TodoList({ todos, handleComplete }) {
   return (
     <ul>
-      {todos.map(todo => (
+      {todos.map((todo) => (
         <li key={todo.id}>
-          <span style={{ marginRight: '10px' }}>
-            {todo.text}
-          </span>
+          <span>{todo.text}</span>
           {!todo.completed && (
             <button
-              onClick={() => handleComplete(todo.id)}
               data-testid={`complete-button-${todo.id}`}
+              onClick={() => handleComplete(todo.id)}
             >
               Complete
             </button>
