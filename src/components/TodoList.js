@@ -4,13 +4,8 @@ function TodoList({ todos, handleComplete }) {
   return (
     <ul>
       {todos.map(todo => (
-        <li key={todo.id} data-testid={`todo-${todo.id}`} style={{ marginBottom: '10px' }}>
-          <span
-            style={{
-              textDecoration: todo.completed ? 'line-through' : 'none',
-              marginRight: '10px'
-            }}
-          >
+        <li key={todo.id}>
+          <span style={{ marginRight: '10px' }}>
             {todo.text}
           </span>
           {!todo.completed && (
