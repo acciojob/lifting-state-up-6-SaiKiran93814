@@ -9,7 +9,7 @@ function App() {
   ]);
 
   const handleComplete = (id) => {
-    setTodos((prevTodos) =>
+    setTodos(prevTodos =>
       prevTodos.map(todo =>
         todo.id === id ? { ...todo, completed: true } : todo
       )
@@ -18,8 +18,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>parent component</h1>
-      <h4>Child component</h4>
+      <h1>Todo List</h1>
       <TodoList todos={todos} handleComplete={handleComplete} />
     </div>
   );
